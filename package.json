@@ -1,0 +1,26 @@
+{
+  "name": "tc-core",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "Harsewak Singh",
+  "license": "ISC",
+  "devDependencies": {
+    "apollo-boost": "^0.4.7",
+    "apollo-link-ws": "^1.0.19",
+    "graphql": "^14.6.0",
+    "prettier": "^2.0.4",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "@types/ws": "^7.2.4",
+    "subscriptions-transport-ws": "^0.9.16"
+  },
+  "files": ["lib/**/*"]
+}
