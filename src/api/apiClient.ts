@@ -7,6 +7,7 @@ import { HttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { gql } from 'apollo-boost';
 import { WebSocketLink } from 'apollo-link-ws';
+import dataManager from "../data/dataManager";
 
 export interface GraphParameters<V> {
   query: string;
@@ -25,7 +26,7 @@ class ApolloGraphClient implements ApiClient {
   httpLink = new HttpLink({
     uri: `${host}/graphql`,
     headers: {
-      'x-token': localStorage.getItem('token'),
+      'x-token': dataManager.read('token'),
     },
   });
 

@@ -1,4 +1,5 @@
 import { Session } from './models/session';
+import storageManager from "./storageManager";
 
 interface DataManager {
   session(session: Session): void;
@@ -23,9 +24,9 @@ interface DataManager {
 
 class DataManagerHandler implements DataManager {
   session(session: Session): void {
-    localStorage.setItem('Email', session.email);
-    localStorage.setItem('UserId', session.userId);
-    localStorage.setItem('Token', session.token);
+    this.setItem('Email', session.email);
+    this.setItem('UserId', session.userId);
+    this.setItem('Token', session.token);
   }
 
   readSession(): Session {
@@ -37,16 +38,20 @@ class DataManagerHandler implements DataManager {
   }
 
   private getItem(key: string): string | null {
-    return localStorage.getItem(key);
+    return storageManager.getItem(key);
+  }
+
+  private setItem(key: string, value: string): void {
+    storageManager.setItem(key, value);
   }
 
   hasSession(): boolean {
-    let token = localStorage.getItem('Token');
+    let token = this.getItem('Token');
     return token !== null && token.length > 0;
   }
 
   clearSession(): void {
-    localStorage.clear();
+    storageManager.clear();
   }
 
   saveObj<T extends Object>(obj: T): void {
@@ -54,12 +59,13 @@ class DataManagerHandler implements DataManager {
   }
 
   save<T>(key: string, obj: T): void {
-    localStorage.setItem(key, JSON.stringify(obj));
+    this.setItem(key, JSON.stringify(obj));
   }
 
   read<T>(key: string): T | null {
-    let item = localStorage.getItem(key);
-    if (item !== null) {
+    let item = this.getItem(key);
+    console.log(" item == "+ item)
+    if (item) {
       return JSON.parse(item);
     }
     return null;
