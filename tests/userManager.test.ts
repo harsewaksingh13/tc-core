@@ -3,7 +3,6 @@ import { UserManager } from "../data/userManager";
 import { Message } from "../api/apis/userApi";
 import { LoginRequest, RegisterRequest, Subscriber } from "../api/models";
 import { User } from "../data/models";
-import isString from "subscriptions-transport-ws/dist/utils/is-string";
 
 class MockedUserManager implements UserManager {
   allMessages(): Promise<Array<Message>> {

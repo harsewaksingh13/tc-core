@@ -74,7 +74,6 @@ class UserManagerImpl implements UserManager {
         dataManager.clearSession();
       }
       resolve(true);
-      // navigator.user().login();
       this.messagesSubscription?.unsubscribe();
     });
   }
