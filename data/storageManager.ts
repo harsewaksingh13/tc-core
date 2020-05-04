@@ -9,14 +9,14 @@ export interface StorageManager {
 
 class StorageManagerImpl implements StorageManager {
 
-     storage = new Map<string,string>();
+     storage = localStorage
 
     clear(): void {
         this.storage.clear()
     }
 
     getItem(key: string): string | null {
-        let value = this.storage.get(key)
+        let value = this.storage.getItem(key)
         if(value) {
            return value
         }
@@ -24,7 +24,7 @@ class StorageManagerImpl implements StorageManager {
     }
 
     setItem(key: string, value: string) {
-        this.storage.set(key,value)
+        this.storage.setItem(key,value)
     }
 
 }
