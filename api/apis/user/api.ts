@@ -31,7 +31,7 @@ export class UserApiManager extends BaseApiManager<UserRequest> implements UserA
   }
 
   register(request: RegisterRequest): ApiRequest {
-    return this.apiClient.query({query:authQueries.login, variables: { input: request }});
+    return this.apiClient.query({query:authQueries.register, variables: { input: request }});
   }
 
   logout(): ApiRequest {

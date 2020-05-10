@@ -1,7 +1,7 @@
 import { BaseQueries } from "../base/queries";
 
 const add = `
-    mutation loginMutation($input: UserInput) {
+    mutation _($input: UserInput) {
         authenticateUser(input: $input) {
             accessToken
             refreshToken
@@ -23,8 +23,25 @@ const update = ``;
 
 const userQueries : BaseQueries = { add, remove, get, list, update };
 
-const login = ` mutation loginMutation($input: UserInput) {
+const login = ` 
+mutation _($input: UserInput) {
     authenticateUser(input: $input) {
+        accessToken
+        refreshToken
+        user {
+            _id
+            alias
+            email
+            fname
+            lname
+        }
+    }
+}
+`;
+
+const register = `
+mutation _($input: UserInput) {
+    createUser(input: $input) {
         accessToken
         refreshToken
         user {
@@ -37,6 +54,6 @@ const login = ` mutation loginMutation($input: UserInput) {
     }
 }`;
 
-const authQueries = { login , register : '' };
+const authQueries = { login , register };
 
 export { userQueries, authQueries };
