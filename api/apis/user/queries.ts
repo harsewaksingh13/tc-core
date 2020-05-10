@@ -21,6 +21,22 @@ const get = ``;
 const list = ``;
 const update = ``;
 
-const businessQueries : BaseQueries = { add, remove, get, list, update };
+const userQueries : BaseQueries = { add, remove, get, list, update };
 
-export {businessQueries};
+const login = ` mutation loginMutation($input: UserInput) {
+    authenticateUser(input: $input) {
+        accessToken
+        refreshToken
+        user {
+            _id
+            alias
+            email
+            fname
+            lname
+        }
+    }
+}`;
+
+const authQueries = { login , register : '' };
+
+export { userQueries, authQueries };

@@ -1,11 +1,11 @@
 import { LoginRequest, Subscriber, Subscription } from '../api/models';
 import { RegisterRequest } from '../api/models';
 import apiManager from '../api/apiManager';
-import { AuthResponse } from '../api/models/user/authResponse';
+import { AuthResponse } from '../api/models/user/userResponse';
 import { User } from './models';
 import dataManager from './dataManager';
 // import navigator from "../view/navigation/appNavigator";
-import { Message } from '../api/apis/userApi';
+import { Message } from '../api/apis/user/api';
 
 export interface UserManager {
   //display welcome page or handle redirection logic depending session

@@ -1,13 +1,6 @@
 import { ApiRequest } from '../../models';
 import { ApiClient } from '../../apiClient';
-
-export type BaseQueries = {
-	add: string,
-	get: string,
-	update: string,
-	remove: string,
-	list: string,
-}
+import { BaseQueries } from './queries';
 
 export interface BaseApi<T> {
 	add(request: T): ApiRequest,
@@ -17,7 +10,7 @@ export interface BaseApi<T> {
 	list(): ApiRequest
 }
 
-export default class BaseApiImpl<T> implements BaseApi<T>  {
+export class BaseApiManager<T> implements BaseApi<T>  {
 
 	apiClient: ApiClient;
 	queries: BaseQueries;

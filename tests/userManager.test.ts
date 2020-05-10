@@ -1,6 +1,6 @@
 import { expect } from "chai";
 import { UserManager } from "../data/userManager";
-import { Message } from "../api/apis/userApi";
+import { Message } from "../api/apis/user/api";
 import { LoginRequest, RegisterRequest, Subscriber } from "../api/models";
 import { User } from "../data/models";
 

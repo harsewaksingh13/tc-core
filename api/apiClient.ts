@@ -53,6 +53,16 @@ class ApolloGraphClient implements ApiClient {
     link: this.link,
     cache: new InMemoryCache(),
     typeDefs: '',
+    defaultOptions: {
+			watchQuery: {
+				fetchPolicy: 'no-cache',
+				errorPolicy: 'ignore'
+			},
+			query: {
+				fetchPolicy: 'no-cache',
+				errorPolicy: 'all'
+			}
+		}
   });
 
   query<V>(request: GraphParameters<V>, headers?: Map<string, any> | null): ApiRequest {
