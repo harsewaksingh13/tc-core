@@ -1,5 +1,6 @@
 import { ApiRequest, LoginRequest, RegisterRequest } from '../models';
 import { ApiClient } from '../apiClient';
+import { BaseApi } from './base/api';
 
 export type Message = {
   text: string;
