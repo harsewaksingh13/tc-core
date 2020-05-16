@@ -1,4 +1,4 @@
-import { BaseQueries } from "../base/api";
+import { BaseQueries } from "../base/queries";
 
 const add = `
     mutation loginMutation($input: UserInput) {
@@ -21,6 +21,6 @@ const get = ``;
 const list = ``;
 const update = ``;
 
-const BusinessQueries : BaseQueries = { add, remove, get, list, update };
+const businessQueries : BaseQueries = { add, remove, get, list, update };
 
-export default BusinessQueries;
+export {businessQueries};

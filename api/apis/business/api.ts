@@ -1,16 +1,17 @@
 import { ApiRequest } from '../../models';
-import BaseApiImpl from '../base/api';
-import BusinessQueries from './queries';
+import {BaseApiManager, BaseApi} from '../base/api';
+import {businessQueries} from './queries';
 import { ApiClient } from '../../apiClient';
+import { BusinessRequest } from '../../models/business/businessRequest'
 
-interface BusinessRequest {
-
+export interface BusinessApi extends BaseApi<BusinessRequest> {
+  
 }
 
-export default class BusinessApiImpl extends BaseApiImpl<BusinessRequest> {
+export class BusinessApiManager extends BaseApiManager<BusinessRequest> implements BusinessApi {
   
   constructor(apiClient: ApiClient) {
-    super(apiClient, BusinessQueries);
+    super(apiClient, businessQueries);
   }
 
 }
